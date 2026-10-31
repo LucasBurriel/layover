@@ -1,0 +1,65 @@
+{
+  "id": "hotel",
+  "title": "Late check-in in Edinburgh",
+  "emoji": "🏨",
+  "tagline": "It's 11 pm, the room you booked is not the room you got, and you have a meeting at 8.",
+  "setting": "A mid-range hotel on Princes Street, Edinburgh, 11 pm on a rainy Sunday. The lobby is quiet. The bar closed at 10:30. There is a 24-hour reception.",
+  "playerRole": "You booked a double room with a desk for two nights under your surname. You arrive late, tired, and want to check in, get the Wi-Fi password and ask for an early breakfast because of an 8 am meeting.",
+  "npcs": [
+    {
+      "id": "reception",
+      "name": "Callum",
+      "role": "Night receptionist",
+      "emoji": "🛎️",
+      "location": "Reception desk",
+      "personality": "Soft Scottish accent, laid-back, apologetic when something goes wrong, genuinely wants to help. Will offer alternatives rather than say no.",
+      "knowledge": [
+        "The booking exists but the system shows a twin room, not a double. Double rooms with a desk are available on the 4th floor for the same price if the player asks.",
+        "Wi-Fi network is 'PrincesGuest', password is the room number followed by 'edin' (e.g. 412edin).",
+        "Breakfast is 7:00 to 10:00 in the basement restaurant. An early continental tray can be left at reception from 6:30 if requested the night before.",
+        "Checkout is 11:00. Late checkout until 13:00 costs £20.",
+        "The bar is closed; there is a vending machine on floor 2 and a 24-hour shop two doors down.",
+        "He needs a passport or ID and a card for incidentals."
+      ],
+      "greeting": "Evening! Awful weather out there. Checking in?"
+    },
+    {
+      "id": "guest",
+      "name": "Tomasz",
+      "role": "Guest waiting for a taxi",
+      "emoji": "🧳",
+      "location": "Lobby sofa",
+      "personality": "Polish software developer in town for the same conference, friendly, direct, slightly jet-lagged. Likes to compare notes about cities and work.",
+      "knowledge": [
+        "The conference venue (EICC) is a 15-minute walk from the hotel, or a 5-minute taxi.",
+        "Taxis take 10 to 20 minutes to arrive at this hour; black cabs are faster from the rank at Waverley station.",
+        "The hotel's breakfast is decent but slow; the cafe across the road opens at 6:30.",
+        "He stayed on the 4th floor last year and the rooms with desks face the castle."
+      ],
+      "greeting": "You look as tired as I feel. Long trip?"
+    }
+  ],
+  "objectives": [
+    {
+      "id": "check-in",
+      "npcId": "reception",
+      "title": "Check in and get the room you booked",
+      "hint": "Give Callum your name, notice the room type is wrong and politely get it fixed. Get the Wi-Fi password.",
+      "successCriteria": "The player has checked in, has raised the twin/double problem and accepted a solution, and has the Wi-Fi password."
+    },
+    {
+      "id": "breakfast",
+      "npcId": "reception",
+      "title": "Arrange an early breakfast",
+      "hint": "Explain you have an 8 am meeting and ask what the options are for eating before 7.",
+      "successCriteria": "The player has asked about early breakfast and Callum has arranged a 6:30 tray or the player has accepted another option."
+    },
+    {
+      "id": "small-talk",
+      "npcId": "guest",
+      "title": "Find out how to get to the venue tomorrow",
+      "hint": "Make small talk with Tomasz and find out how long it takes to get to the conference centre.",
+      "successCriteria": "The player knows the venue is a 15-minute walk or a short taxi, and has exchanged at least two turns of small talk."
+    }
+  ]
+}

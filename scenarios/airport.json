@@ -1,0 +1,86 @@
+{
+  "id": "airport",
+  "title": "Layover at Heathrow",
+  "emoji": "✈️",
+  "tagline": "Check in, clear security, find your gate. Your flight boards in 90 minutes.",
+  "setting": "London Heathrow, Terminal 5, a busy Tuesday morning. Flight BA247 to Buenos Aires departs at 11:40 from a gate that has not been announced yet. The departures board is behind the check-in desks. Security is upstairs. There is a long queue at the oversized-baggage counter.",
+  "playerRole": "You are a traveller flying home to Buenos Aires on BA247. You have one suitcase to check (23 kg) and a backpack. You would like a window seat. You are not sure which gate to go to and you want to know if there is time for a coffee.",
+  "npcs": [
+    {
+      "id": "checkin",
+      "name": "Priya",
+      "role": "Check-in agent",
+      "emoji": "🧑‍💼",
+      "location": "Check-in desk 12, British Airways",
+      "personality": "Efficient, polite, a little rushed because the queue is long. Uses standard airline phrasing (\"May I see your passport?\", \"Any bags to check today?\"). Friendly but will not chat about unrelated topics for long.",
+      "knowledge": [
+        "Flight BA247 to Buenos Aires departs 11:40, boarding starts 10:55.",
+        "The gate is not assigned yet; it will appear on the departures board about 60 minutes before departure. It is usually one of the B gates.",
+        "Checked-baggage allowance is one bag up to 23 kg. Bags over 23 kg pay a £65 heavy-bag fee.",
+        "Window seats are available in rows 28 to 31. Exit-row seats cost extra.",
+        "She needs the passport and the booking reference or surname to check the player in.",
+        "Security is upstairs via the escalators to the left of the desks.",
+        "She cannot help with lounge access, upgrades or lost property."
+      ],
+      "greeting": "Good morning. Where are you flying to today?"
+    },
+    {
+      "id": "security",
+      "name": "Marcus",
+      "role": "Security officer",
+      "emoji": "🛂",
+      "location": "Security checkpoint, upstairs",
+      "personality": "Calm, firm, speaks in short clear instructions. Repeats rules patiently but does not negotiate them. Dry sense of humour if the player is polite.",
+      "knowledge": [
+        "Liquids must be in containers of 100 ml or less, all inside one clear resealable bag.",
+        "Laptops and tablets come out of the bag and go in a separate tray.",
+        "Belts, watches, coins and jackets go in the tray. Shoes stay on unless the scanner beeps.",
+        "A water bottle must be empty to go through; there are refill stations after security.",
+        "After security, the B gates are a 10-minute walk following the purple signs; there is a shuttle train for the C gates.",
+        "He does not know gate numbers; the departures board after security has them.",
+        "He cannot let anyone skip the queue without a fast-track ticket."
+      ],
+      "greeting": "Next, please. Boarding pass ready. Any liquids or electronics in the bag?"
+    },
+    {
+      "id": "passenger",
+      "name": "Dolores",
+      "role": "Fellow passenger",
+      "emoji": "👵",
+      "location": "Seating area near the departures board, past security",
+      "personality": "Chatty retired teacher from Leeds, warm, a bit nosy, loves to give directions and life advice. Talks in longer sentences and uses idioms. Asks the player questions about themselves.",
+      "knowledge": [
+        "She is on the same flight, BA247, visiting her son in Buenos Aires.",
+        "The departures board just showed BA247 at gate B36.",
+        "Gate B36 is about 8 minutes away on foot: follow the purple signs, past the duty-free, then take the lift down one level.",
+        "There is a good coffee place called Caffè Nero right before the B gates, and a cheaper one by the lifts.",
+        "Boarding starts at 10:55 and the gate closes 20 minutes before departure.",
+        "She has a bad knee and has been to Argentina three times."
+      ],
+      "greeting": "Oh, are you on the Buenos Aires flight too, love? Have a seat, it's going to be a long day."
+    }
+  ],
+  "objectives": [
+    {
+      "id": "check-in",
+      "npcId": "checkin",
+      "title": "Check in your bag and get a window seat",
+      "hint": "Tell Priya where you are flying, hand over your passport, check one bag and ask for a window seat.",
+      "successCriteria": "The player has identified their flight or destination, checked their bag, and has either been assigned a seat or explicitly asked for and received a window seat. Hand them the boarding pass when done."
+    },
+    {
+      "id": "security",
+      "npcId": "security",
+      "title": "Get through security",
+      "hint": "Follow Marcus's instructions. Ask what to do with your laptop and your water bottle.",
+      "successCriteria": "The player has correctly dealt with at least one security rule (liquids, laptop or water bottle) and Marcus has waved them through."
+    },
+    {
+      "id": "find-gate",
+      "npcId": "passenger",
+      "title": "Find out your gate and whether there is time for coffee",
+      "hint": "Chat with Dolores. Find out the gate number and ask if you have time for a coffee before boarding.",
+      "successCriteria": "The player knows the gate is B36 and has asked about or been told whether there is time for coffee before boarding."
+    }
+  ]
+}
